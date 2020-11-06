@@ -15,7 +15,7 @@
 <script>
 export default {
 	async asyncData({ $content }) {
-		const posts = await $content("products").fetch();
+		const products = await $content("products").fetch();
 		
 		return { products };
 	}
