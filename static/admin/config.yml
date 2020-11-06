@@ -11,11 +11,12 @@ collections:
     folder: 'content/products'
     format: 'frontmatter'
     create: true
-    slug: '{{slug}}'
+    slug: '{{name}}-{{id}}'
     editor:
       preview: false
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'ID', name: 'id', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Price', name: 'price', widget: 'number' }
       - { label: 'Featured Image', name: 'image', widget: 'image'}
