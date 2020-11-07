@@ -12,6 +12,7 @@ exports.handler = async (event, context, callback) => {
   
   try {
     sgMail.setApiKey(SENDGRID_API_KEY);
+    console.log('processing...');
     await sgMail.send(msg);
     console.log('sent!');
 
