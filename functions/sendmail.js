@@ -6,7 +6,7 @@ exports.handler = async (event, context, callback) => {
   
   const msg = { 
     to: 'nvq.alino@gmail.com',
-    from: 'eureka@neilvqa.host',
+    from: 'nvqa.business@gmail.com',
     subject: 'test serverless sendmail',
   };
   
@@ -21,6 +21,7 @@ exports.handler = async (event, context, callback) => {
     }
   } catch (e) {
   	console.log(e.message);
+  	console.log(e.response.body);
     return {
       statusCode: e.code,
       body: e.message
