@@ -1,17 +1,16 @@
-const sgMail = require('@sendgrid/mail')
-const { SENDGRID_API_KEY } = process.env
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
 exports.handler = async (event, context, callback) => {
   
   const msg = { 
     to: 'nvq.alino@gmail.com',
-    from: 'nvqa.business@gmail.com',
+    from: 'Eureka <no-reply@neilvqa.host>',
     subject: 'test serverless sendmail'
-  }
+  };
   
   try {
-    sgMail.setApiKey(SENDGRID_API_KEY);
     console.log('processing...');
     await sgMail.send(msg);
     console.log('sent!');
@@ -21,6 +20,7 @@ exports.handler = async (event, context, callback) => {
       body: 'Message sent'
     }
   } catch (e) {
+  	console.log(e.message);
     return {
       statusCode: e.code,
       body: e.message

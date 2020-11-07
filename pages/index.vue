@@ -28,7 +28,7 @@ export default {
   			"name":"hi!"
   		})
   			.then( response => {
-  				console.log('to serverless fx');
+  				console.log('serverless fx done!');
   				console.log(response.body);
   			});
   	}
