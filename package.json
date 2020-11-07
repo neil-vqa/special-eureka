@@ -13,6 +13,7 @@
     "@nuxtjs/axios": "^5.12.2",
     "@sendgrid/mail": "^7.4.0",
     "core-js": "^3.6.5",
+    "google-spreadsheet": "^3.0.13",
     "nuxt": "^2.14.6"
   },
   "devDependencies": {

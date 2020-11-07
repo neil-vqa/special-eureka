@@ -7,7 +7,7 @@
       </h1>
       <div class="links">
         <div class="button--green" @click="sendMail">Send Mail</div>
-        <div class="button--grey">Send Data</div>
+        <div class="button--grey" @click="sendOrder">Send Data</div>
       </div>
     </div>
   </div>
@@ -22,10 +22,26 @@ export default {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
   },
+  data() {
+  	return {
+  		orders: [{name: 'ramyun', price: 450}, {name: 'samgyup', price: 800}],
+  	}
+  },
   methods: {
   	sendMail() {
-  		axios.post('.netlify/functions/sendmail', {
-  			"name":"hi!"
+  		axios.post('.netlify/functions/sendmail')
+  			.then( response => {
+  				console.log('serverless fx done!');
+  				console.log(response.body);
+  			});
+  	},
+  	sendOrder() {
+  		axios.post('.netlify/functions/sendorder', {
+  			"name": "Jihyo",
+  			"date": "Nov 7, 2020",
+  			"address": "Seoul, South Korea",
+  			"phone": "09452542203",
+  			"order": this.orders
   		})
   			.then( response => {
   				console.log('serverless fx done!');
