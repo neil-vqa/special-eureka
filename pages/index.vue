@@ -41,7 +41,7 @@ export default {
   			"date": "Nov 7, 2020",
   			"address": "Seoul, South Korea",
   			"phone": "09452542203",
-  			"order": this.orders
+  			"order": JSON.stringify(this.orders)
   		})
   			.then( response => {
   				console.log('serverless fx done!');
