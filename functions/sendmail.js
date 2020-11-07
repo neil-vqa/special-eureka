@@ -8,16 +8,8 @@ exports.handler = async (event, context, callback) => {
     to: 'nvq.alino@gmail.com',
     from: 'nvqa.business@gmail.com',
     subject: 'test serverless sendmail',
-    content: [
-		  {
-		    type: 'text/html',
-		    value: '<p>Test successful</p>',
-		  },
-		  {
-		    type: 'text/plain',
-		    value: 'Test successful',
-		  },
-		],
+    text: 'Test success.',
+		html: '<p>Test success.</p>',
   };
   
   try {
