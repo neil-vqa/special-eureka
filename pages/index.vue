@@ -6,33 +6,29 @@
         eureka
       </h1>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+        <div class="button--green" @click="sendMail">Send Mail</div>
+        <div class="button--grey">Send Data</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
 	head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
+  },
+  methods: {
+  	sendMail() {
+  		axios.post('.netlify/functions/sendmail.js')
+  			.then( response => {
+  				console.log(response.body);
+  			});
+  	}
   },
 }
 </script>
