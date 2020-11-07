@@ -24,7 +24,7 @@ export default {
   },
   methods: {
   	sendMail() {
-  		axios.post('.netlify/functions/sendmail.js')
+  		axios.post('.netlify/functions/sendmail')
   			.then( response => {
   				console.log(response.body);
   			});
