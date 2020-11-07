@@ -6,8 +6,8 @@ exports.handler = async (event, context, callback) => {
   
   const msg = { 
     to: 'nvq.alino@gmail.com',
-    from: 'Eureka <no-reply@neilvqa.host>',
-    subject: 'test serverless sendmail'
+    from: 'eureka@neilvqa.host',
+    subject: 'test serverless sendmail',
   };
   
   try {
