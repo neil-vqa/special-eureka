@@ -11,8 +11,9 @@ exports.handler = async (event, context, callback) => {
   }
   
   try {
-    sgMail.setApiKey(SENDGRID_API_KEY)
-    await sgMail.send(msg)
+    sgMail.setApiKey(SENDGRID_API_KEY);
+    await sgMail.send(msg);
+    console.log('sent!');
 
     return {
       statusCode: 200,

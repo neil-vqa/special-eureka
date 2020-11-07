@@ -24,8 +24,11 @@ export default {
   },
   methods: {
   	sendMail() {
-  		axios.post('.netlify/functions/sendmail')
+  		axios.post('.netlify/functions/sendmail', {
+  			"name":"hi!"
+  		})
   			.then( response => {
+  				console.log('to serverless fx');
   				console.log(response.body);
   			});
   	}
