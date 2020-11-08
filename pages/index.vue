@@ -24,7 +24,7 @@ export default {
   },
   data() {
   	return {
-  		orders: [{name: 'ramyun', price: 450}, {name: 'samgyup', price: 800}],
+  		orders: [{name: 'ramyun', price: 450}, {name: 'samgyup', price: 800}, {name: 'bibimbap', price: 750}],
   	}
   },
   methods: {
@@ -36,12 +36,19 @@ export default {
   			});
   	},
   	sendOrder() {
+  		let ordered = '';
+  		const line = this.orders.map((item,index) => {
+				return `${index+1}) Item: ${item.name}, Price: ${item.price}`;
+			}).join("\n");
+		
+		ordered = line;
+  	
   		axios.post('.netlify/functions/sendorder', {
   			"name": "Jihyo",
-  			"date": "Nov 7, 2020",
+  			"date": "Nov 8, 2020",
   			"address": "Seoul, South Korea",
   			"phone": "09452542203",
-  			"order": JSON.stringify(this.orders)
+  			"order": ordered
   		})
   			.then( response => {
   				console.log('serverless fx done!');
