@@ -5,7 +5,9 @@
 @import 'tailwindcss/utilities';
 
 
-
+.nav-link {
+	@apply flex items-center text-xs uppercase font-extrabold tracking-wide h-full;
+}
 
 
 
