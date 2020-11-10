@@ -1,10 +1,12 @@
 <template>
   <div class="py-16">
-    <h1 class="text-2xl">eureka! Articles</h1>
+    <h1 class="text-3xl text-center">eureka! Articles</h1>
      <div class="py-10">
      	<div class="grid grid-cols-1 gap-10">
      		<div v-for="post in posts" :key="post.slug">
-     			<div class="flex flex-wrap w-full justify-between border border-gray-600 hover:shadow-xl cursor-pointer">
+     		
+     			<!-- card -->
+     			<div class="flex flex-wrap w-full justify-between border border-gray-600 cursor-pointer hover:shadow-xl">
      				<div class="md:w-2/6">
      					<img :src="post.image" class="h-64 w-full object-cover object-center"/>
      				</div>
@@ -50,6 +52,8 @@
 							</ShareNetwork>
      				</div>
      			</div>
+     			<!-- endcard -->
+     			
      		</div>
      	</div>
      </div>

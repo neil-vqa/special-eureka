@@ -1,10 +1,12 @@
 <template>
   <div class="py-16">
-    <h1 class="text-2xl">eureka! Products</h1>
+    <h1 class="text-3xl text-center">eureka! Products</h1>
     <div class="py-10">
     	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
     		<div v-for="product in products" :key="product.slug">
-		  		<div class="border border-gray-600 hover:shadow-xl">
+    		
+    			<!-- card -->
+		  		<div class="border border-gray-600 hover:shadow-xl cursor-pointer">
 		  			<div class="overflow-hidden">
 		  				<img :src="product.image" class="h-64 w-full object-cover object-center"/>
 		  			</div>
@@ -20,7 +22,9 @@
 								</div>
 							</div>
 		  			</div>
-		  		</div>
+		  		</div>	
+		  		<!-- endcard -->
+		  		
 		  	</div>
     	</div>
     </div>
