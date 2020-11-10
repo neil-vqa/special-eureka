@@ -12,9 +12,11 @@
     "@nuxt/content": "^1.10.0",
     "@nuxtjs/axios": "^5.12.2",
     "@sendgrid/mail": "^7.4.0",
+    "@tailwindcss/typography": "^0.2.0",
     "core-js": "^3.6.5",
     "google-spreadsheet": "^3.0.13",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vue-social-sharing": "^3.0.3"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.1.0"
