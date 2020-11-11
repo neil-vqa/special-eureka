@@ -10,10 +10,11 @@
      				<div class="md:w-2/6">
      					<img :src="post.image" class="h-64 w-full object-cover object-center"/>
      				</div>
-     				<div class="p-5 overflow-hidden space-y-2 md:w-3/6">
-     					<h1 class="text-2xl font-semibold">{{ post.title }}</h1>
+     				<div class="p-5 overflow-hidden space-y-3 md:w-3/6">
+     					<nuxt-link :to="`/articles/${post.slug}`"><h1 class="text-2xl font-semibold cursor-pointer hover:underline">{{ post.title }}</h1></nuxt-link>
      					<p class="text-gray-700">{{ post.author }} - {{ post.published }}</p>
-     					<nuxt-content :document="post" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto md:h-20 lg:h-32 overflow-hidden" />
+     					<nuxt-content :document="post" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto h-20 overflow-hidden text-gray-700" />
+     					<nuxt-link :to="`/articles/${post.slug}`" class="cursor-pointer hover:underline">Read more...</nuxt-link>
      				</div>
      				<div class="flex md:flex-col w-full md:w-1/12 items-center justify-center bg-gray-800 md:space-y-3 space-x-5 md:space-x-0 py-3">
      					<ShareNetwork
@@ -62,6 +63,7 @@
 
 <script>
 export default {
+	layout: 'main',
 	async asyncData({ $content }) {
 		const posts = await $content("posts").fetch();
 		

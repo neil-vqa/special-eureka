@@ -1,6 +1,7 @@
 <template>
   <div class="font-base">
   	<TopHeader />
+  	<MidHeader />
   	
   	<!-- nav -->
     <div class="sticky top-0 z-50 bg-white w-full h-16 border-b border-gray-400">

@@ -10,15 +10,15 @@
 		  			<div class="overflow-hidden">
 		  				<img :src="product.image" class="h-64 w-full object-cover object-center"/>
 		  			</div>
-		  			<div class="py-5 px-10 space-y-3">
+		  			<div class="p-10 space-y-3">
 		  				<p class="h-16 text-lg font-semibold">{{ product.name }}</p>
-							<p class="text-gray-700">{{ product.description }}</p>
-							<div class="flex justify-between items-center">
+							<p class="text-gray-700 clamp-3">{{ product.description }}</p>
+							<div class="flex justify-between items-center pt-5">
 								<p class="text-lg">$ {{ product.price }}</p>
 								<div>
-									<div class="px-4 py-2 bg-gray-500 text-white uppercase cursor-pointer">
-										add
-									</div>
+									<nuxt-link :to="`/products/${product.slug}`" class="px-5 py-3 bg-gray-500 text-white text-sm uppercase cursor-pointer hover:bg-gray-700">
+										View Product
+									</nuxt-link>
 								</div>
 							</div>
 		  			</div>
@@ -33,6 +33,7 @@
 
 <script>
 export default {
+	layout: 'main',
 	async asyncData({ $content }) {
 		const products = await $content("products").fetch();
 		
@@ -40,7 +41,7 @@ export default {
 	},
 	data() {
   	return {
-  		orders: [{name: 'ramyun', price: 450}, {name: 'samgyup', price: 800}, {name: 'bibimbap', price: 750}],
+  		orders: [],
   	}
   },
   methods: {
@@ -76,11 +77,6 @@ export default {
 </script>
 
 <style>
-
-
-
-
-
 
 
 
