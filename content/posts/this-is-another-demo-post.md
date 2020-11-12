@@ -4,9 +4,11 @@ author: Neil Alino
 published: 2020-11-10T05:46:42.155Z
 image: /img/wolf_howling.jpg
 ---
-Duis aute irure dolor in reprehenderit in voluptate velit. Duis aute irure dolor in reprehenderit in voluptate velit. Nihil molestiae consequatur, vel illum qui dolorem eum. Do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+## Wolf in the picture
 
-Nihil molestiae consequatur, vel illum qui dolorem eum. Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+*Duis aute irure dolor in reprehenderit in voluptate velit.* Duis aute irure dolor in reprehenderit in voluptate velit. Nihil molestiae consequatur, vel illum qui dolorem eum. Do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+> Nihil molestiae consequatur, vel illum qui dolorem eum. Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Fugiat quo voluptas nulla pariatur? Nihil molestiae consequatur, vel illum qui dolorem eum.
 
