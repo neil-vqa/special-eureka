@@ -10,7 +10,7 @@
   				<img :src="post.image" class="w-full object-cover object-center"/>
   			</div>
   			<div>
-  				<nuxt-content :document="post" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto h-20 overflow-hidden" />
+  				<nuxt-content :document="post" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto overflow-hidden" />
   			</div>
   		</div>
   		<div class="lg:col-span-1">
