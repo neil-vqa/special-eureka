@@ -1,6 +1,10 @@
 ---
 title: This is Another Demo Post
 author: Neil Alino
+excerpt: Ut aut reiciendis voluptatibus maiores alias consequatur aut
+  perferendis doloribus asperiores repellat. Inventore veritatis et quasi
+  architecto beatae vitae dicta sunt explicabo. Et iusto odio dignissimos
+  ducimus qui blanditiis praesentium voluptatum deleniti atque.
 published: 2020-11-10T05:46:42.155Z
 image: /img/wolf_howling.jpg
 ---
