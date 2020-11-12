@@ -23,7 +23,8 @@ module.exports = {
   },
   variants: {},
   plugins: [
-  	require('tailwindcss-line-clamp')
+  	require('tailwindcss-line-clamp'),
+  	require('@tailwindcss/typography'),
   ],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
