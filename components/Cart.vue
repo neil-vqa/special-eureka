@@ -2,19 +2,21 @@
   <div class="">
   	<!-- cart btn -->
     <div class="cart-btn cart-btn-style hover:bg-gray-900" @click="openCart">
-    	<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="40" height="40" 
+    	<p class="text-white text-center text-lg">{{ cartCount }}</p>
+    	<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="30" height="30" 
     				viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 				<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 				<circle cx="9" cy="19" r="2" />
 				<circle cx="17" cy="19" r="2" />
 				<path d="M3 3h2l2 12a3 3 0 0 0 3 2h7a3 3 0 0 0 3 -2l1 -7h-15.2" />
 			</svg>
-			<p class="text-white text-center">View</p>
+			<p class="text-white text-center text-sm">View</p>
     </div>
     
     <!-- cart panel -->
-    <CartPanel v-show="showCart" @close-panel="openCart" />
-    
+    <transition name="slide">
+    	<CartPanel v-show="showCart" @close-panel="openCart" />
+    </transition>
     
   </div>
 </template>
@@ -31,6 +33,12 @@ export default {
 			this.showCart = !this.showCart;
 		}
 	},
+	computed: {
+		cartCount() {
+			let count = this.$store.getters.added.length;
+			return count;
+		}
+	},
 }
 </script>
 
@@ -43,13 +51,25 @@ export default {
 
 .cart-btn {
 	position: fixed;
-	top: 70%;
+	top: 80%;
 	right: 0;
 	z-index: 90;
 }
 
 .cart-btn-style {
-	@apply bg-gray-700 text-white px-3 pt-5 pb-2 cursor-pointer;
+	@apply bg-gray-700 text-white p-3 cursor-pointer;
+}
+
+.slide-enter, .slide-leave-to {
+	transform: translateX(320px);
+}
+
+.slide-enter-active {
+	transition: transform 0.2s ease-in-out;
+}
+
+.slide-leave-active {
+	transition: transform 0.15s linear;
 }
 
 @media screen and (min-width: 768px) {
