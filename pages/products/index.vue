@@ -1,5 +1,6 @@
 <template>
   <div class="py-16">
+  	<Cart />
     <h1 class="text-3xl text-center">eureka! Products</h1>
     <div class="py-10">
     	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -11,7 +12,9 @@
 		  				<img :src="product.image" class="h-64 w-full object-cover object-center"/>
 		  			</div>
 		  			<div class="p-10 space-y-3">
-		  				<p class="h-16 text-lg font-semibold">{{ product.name }}</p>
+		  				<nuxt-link :to="`/products/${product.slug}`">
+		  					<p class="h-16 text-lg font-semibold hover:underline">{{ product.name }}</p>
+		  				</nuxt-link>
 							<p class="text-gray-700 clamp-3">{{ product.description }}</p>
 							<div class="flex justify-between items-center pt-5">
 								<p class="text-lg">$ {{ product.price }}</p>

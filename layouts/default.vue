@@ -27,7 +27,9 @@
 	color: #000;
 }
 
-
+.logo {
+	border-bottom: none;
+}
 </style>
 
 

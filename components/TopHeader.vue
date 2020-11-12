@@ -22,9 +22,7 @@ export default {
 </script>
 
 <style>
-.logo {
-	border-bottom: none;
-}
+
 
 
 </style>

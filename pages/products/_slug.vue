@@ -1,5 +1,7 @@
 <template>
   <div class="py-16">
+  	<Cart />
+  
   	<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
   		
   		<!-- appear on mobile only -->
@@ -8,7 +10,30 @@
   				<p class="text-xl font-semibold">{{ product.name }}</p>
   				<p class="text-lg">$ {{ product.price }}</p>
   				<div>
-  					<div class="px-5 py-3 bg-gray-500 text-white text-sm text-center font-semibold uppercase cursor-pointer hover:bg-gray-700">Add to cart</div>
+  					<div @click="addItem({'slug':product.slug, 'name':product.name, 'price':product.price, 'quantity': 1})"
+  								class="add-cart hover:bg-gray-700"
+  								v-show="!added.includes(product.slug)">
+  									Add to cart
+  					</div>
+  					<!-- added/remove box -->
+  					<div class="flex items-center justify-between border border-gray-600 h-10"
+  								v-show="added.includes(product.slug)">
+  						<div class="w-2/3 text-center">
+  							<p class="font-semibold text-xl tracking-wide">In cart: {{ count(added, product.slug) }}</p>
+  						</div>
+  						<div class="flex w-1/3 h-full">
+								<div class="add-btn hover:bg-gray-700"
+											@click="addItem({'slug':product.slug, 'name':product.name, 'price':product.price, 'quantity': 1})">
+									+
+								</div>
+								<div class="remove-btn hover:bg-red-500"
+											@click="removeItem({'slug':product.slug})">
+									-
+								</div>
+							</div>
+  					</div>
+  					<div class="checkout-btn hover:bg-gray-900 w-full text-center mt-5" v-show="added.includes(product.slug)">Proceed to Checkout</div>
+  					<!-- endadded box -->
   				</div>
   			</div>  			
   		</div>
@@ -30,7 +55,30 @@
   				<p class="text-xl font-semibold">{{ product.name }}</p>
   				<p class="text-lg">$ {{ product.price }}</p>
   				<div>
-  					<div class="px-5 py-3 bg-gray-500 text-white text-sm text-center font-semibold uppercase cursor-pointer hover:bg-gray-700">Add to cart</div>
+  					<div @click="addItem({'slug':product.slug, 'name':product.name, 'price':product.price, 'quantity': 1})"
+  								class="add-cart hover:bg-gray-700"
+  								v-show="!added.includes(product.slug)">
+  									Add to cart
+  					</div>
+  					<!-- added/remove box -->
+  					<div class="flex items-center justify-between border border-gray-600 h-10"
+  								v-show="added.includes(product.slug)">
+  						<div class="w-2/3 text-center">
+  							<p class="font-semibold text-xl tracking-wide">In cart: {{ count(added, product.slug) }}</p>
+  						</div>
+  						<div class="flex w-1/3 h-full">
+								<div class="add-btn hover:bg-gray-700"
+											@click="addItem({'slug':product.slug, 'name':product.name, 'price':product.price, 'quantity': 1})">
+									+
+								</div>
+								<div class="remove-btn hover:bg-red-500"
+											@click="removeItem({'slug':product.slug})">
+									-
+								</div>
+							</div>
+  					</div>
+  					<div class="checkout-btn hover:bg-gray-900 w-full text-center mt-5" v-show="added.includes(product.slug)">Proceed to Checkout</div>
+  					<!-- endadded box -->  					
   				</div>
   			</div>  			
   		</div>
@@ -40,17 +88,41 @@
 </template>
 
 <script>
+
 export default {
 	async asyncData({ $content, params }) {
 		const product = await $content("products", params.slug).fetch();
 		
 		return { product };
 	},
-	
-	
-	
-	
-	
+	data() {
+		return {
+			name: '',
+		}
+	},
+	methods: {
+		addItem(product) {
+			this.$store.commit("addOneToCart", product);
+			this.$store.commit("inCart", product.slug);
+		},
+		removeItem(product) {
+			this.$store.commit("removeOneFromCart", product);
+			this.$store.commit("notInCart", product.slug);
+		},
+	},
+	computed: {
+		added() {
+			return this.$store.getters.added
+		},
+		count(added, slug) {
+			if (added == null) {
+				return 0
+			} else {
+				let count = (added, slug) => this.added.reduce((a, v) => (v === slug ? a + 1 : a), 0);
+				return count
+			}
+		}
+	},
 	
 	
 }
@@ -63,5 +135,20 @@ export default {
 }
 */
 
+.add-cart {
+	@apply px-5 py-3 bg-gray-500 text-white text-sm text-center font-semibold uppercase cursor-pointer;
+}
+
+.add-btn {
+	@apply bg-gray-500 text-white text-center font-bold text-2xl cursor-pointer w-1/2;
+}
+
+.remove-btn {
+	@apply bg-red-300 text-white text-center font-bold text-2xl cursor-pointer w-1/2;
+}
+
+.checkout-btn {
+	@apply px-5 py-3 bg-gray-700 text-white text-sm text-center font-semibold uppercase cursor-pointer;
+}
 
 </style>
