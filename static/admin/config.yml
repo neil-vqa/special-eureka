@@ -31,6 +31,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - {label: Author, name: author, widget: string }
+      - {label: Excerpt, name: excerpt, widget: string }
       - { label: 'Published', name: 'published', widget: 'datetime' }
       - { label: 'Featured Image', name: 'image', widget: 'image'}
       - { label: 'Body', name: 'body', widget: 'markdown' }
