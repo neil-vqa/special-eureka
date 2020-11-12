@@ -1,6 +1,11 @@
 ---
 title: "Country Fishing: An Example Post"
 author: Neil Alino
+excerpt: It was early in April in the year '83 that I woke one morning to find
+  **Sherlock Holmes** standing, fully dressed, by the side of my bed. He was a
+  late riser, as a rule, and as the clock on the mantelpiece showed me that it
+  was only a quarter-past seven, I blinked up at him in some surprise, and
+  perhaps just a little resentment, for I was myself regular in my habits.
 published: 2020-11-10T05:40:59.490Z
 image: /img/man_fishing.jpg
 ---
