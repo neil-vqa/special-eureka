@@ -3,9 +3,9 @@
   
   	<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
   		<div class="lg:col-span-2">
-  			<h1 class="text-3xl">{{ post.title }}</h1>
+  			<h1 class="text-3xl xl:text-5xl">{{ post.title }}</h1>
   			<p class="text-gray-700">{{ post.author }}</p>
-  			<p class="text-gray-700">{{ post.published }}</p>
+  			<p class="text-gray-700">{{ convertTime(post.published, 'MMM D, YYYY') }}</p>
   			<div class="my-10">
   				<img :src="post.image" class="w-full object-cover object-center"/>
   			</div>
@@ -61,10 +61,26 @@
 
 <script>
 export default {
+	head() {
+		return {
+			title: `${this.post.title} | Eureka!`,
+			meta: [
+				{ hid: 'description', name: 'description', content: this.post.excerpt },
+				{ hid: 'og:title', name: 'og:title', content: `${this.post.title} | Eureka!` },
+				{ hid: 'og:description', name: 'og:description', content: this.post.excerpt },
+				{ hid: 'og:image', name: 'og:image', content: this.post.image },
+			]
+		}
+	},
 	async asyncData({ $content, params }) {
 		const post = await $content("posts", params.slug).fetch();
 		
 		return { post };
+	},
+	methods: {
+		convertTime(time, format) {
+			return this.$moment(time).format(format)
+		}
 	},
 }
 </script>

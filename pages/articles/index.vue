@@ -12,7 +12,7 @@
      				</div>
      				<div class="p-5 overflow-hidden space-y-3 md:w-3/6">
      					<nuxt-link :to="`/articles/${post.slug}`"><h1 class="text-2xl font-semibold cursor-pointer hover:underline">{{ post.title }}</h1></nuxt-link>
-     					<p class="text-gray-700">{{ post.author }} - {{ post.published }}</p>
+     					<p class="text-gray-700">{{ post.author }} - {{ convertTime(post.published, 'MMM D, YYYY') }}</p>
      					<p class="text-gray-700 h-20 overflow-hidden">{{ post.excerpt }}</p>
      					<nuxt-link :to="`/articles/${post.slug}`" class="cursor-pointer hover:underline">Read more...</nuxt-link>
      				</div>
@@ -64,11 +64,27 @@
 <script>
 export default {
 	layout: 'main',
+	head() {
+		return {
+			title: 'Articles | Eureka!',
+			meta: [
+				{ hid: 'description', name: 'description', content: 'Read the most recent brilliant eureka articles by the Eureka team.' },
+				{ hid: 'og:title', name: 'og:title', content: 'Articles | Eureka!' },
+				{ hid: 'og:description', name: 'og:description', content: 'Read the most recent brilliant eureka articles by the Eureka team.' },
+				{ hid: 'og:image', name: 'og:image', content: '/brainstorm.png' },
+			]
+		}
+	},
 	async asyncData({ $content }) {
 		const posts = await $content("posts").fetch();
 		
 		return { posts };
-	}
+	},
+	methods: {
+		convertTime(time, format) {
+			return this.$moment(time).format(format)
+		}
+	},
 }
 </script>
 
