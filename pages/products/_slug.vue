@@ -90,6 +90,17 @@
 <script>
 
 export default {
+	head() {
+		return {
+			title: `${this.product.name} | Eureka!`,
+			meta: [
+				{ hid: 'description', name: 'description', content: this.product.description },
+				{ hid: 'og:title', name: 'og:title', content: `${this.product.name} | Eureka!` },
+				{ hid: 'og:description', name: 'og:description', content: this.product.description },
+				{ hid: 'og:image', name: 'og:image', content: this.product.image },
+			]
+		}
+	},
 	async asyncData({ $content, params }) {
 		const product = await $content("products", params.slug).fetch();
 		

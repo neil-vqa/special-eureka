@@ -37,6 +37,17 @@
 <script>
 export default {
 	layout: 'main',
+	head() {
+		return {
+			title: 'Products | Eureka!',
+			meta: [
+				{ hid: 'description', name: 'description', content: 'Explore and support the brilliant products made by the Eureka Community.' },
+				{ hid: 'og:title', name: 'og:title', content: 'Products | Eureka!' },
+				{ hid: 'og:description', name: 'og:description', content: 'Explore and support the brilliant products made by the Eureka Community.' },
+				{ hid: 'og:image', name: 'og:image', content: '/brainstorm.png' },
+			]
+		}
+	},
 	async asyncData({ $content }) {
 		const products = await $content("products").fetch();
 		
