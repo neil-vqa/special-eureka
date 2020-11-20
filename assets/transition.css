@@ -1,0 +1,17 @@
+
+/*between pages*/
+.page-enter-active, .page-leave-active {
+  transition: all .5s
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+  transform: translate(0, 50px);
+}
+
+/*between layouts*/
+.layout-enter-active, .layout-leave-active {
+  transition: opacity 0.3s;
+}
+.layout-enter, .layout-leave-active {
+  opacity: 0;
+}
