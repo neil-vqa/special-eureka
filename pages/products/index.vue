@@ -37,6 +37,7 @@
 <script>
 export default {
 	layout: 'main',
+	scrollToTop: false,
 	head() {
 		return {
 			title: 'Products | Eureka!',

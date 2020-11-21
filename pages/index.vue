@@ -59,6 +59,7 @@ import axios from 'axios';
 
 export default {
 	layout: 'main',
+	scrollToTop: false,
 	head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],

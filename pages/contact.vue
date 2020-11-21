@@ -7,6 +7,7 @@
 <script>
 export default {
 	layout: 'main',
+	scrollToTop: false,
 }
 </script>
 
