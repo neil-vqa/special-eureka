@@ -1,4 +1,4 @@
-# eureka
+# special-eureka
 
 Website demonstrating e-commerce and blogging features. Also with email notification upon order, and order management thru google sheets.
 
