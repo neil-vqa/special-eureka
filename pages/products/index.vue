@@ -76,7 +76,7 @@ export default {
 		
 		ordered = line;
   	
-  		axios.post('.netlify/functions/sendorder', {
+  		this.$axios.post('.netlify/functions/sendorder', {
   			"name": "Jihyo",
   			"date": "Nov 8, 2020",
   			"address": "Seoul, South Korea",
