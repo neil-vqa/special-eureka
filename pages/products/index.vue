@@ -2,6 +2,7 @@
   <div class="py-16">
   	<Cart />
     <h1 class="text-3xl text-center">eureka! Products</h1>
+    <button @click="sendOrder">order</button>
     <div class="py-10">
     	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
     		<div v-for="product in products" :key="product.slug">
